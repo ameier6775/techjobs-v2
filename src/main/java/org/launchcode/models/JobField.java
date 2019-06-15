@@ -1,8 +1,11 @@
 package org.launchcode.models;
 
+import lombok.Data;
+
 /**
  * Created by LaunchCode
  */
+@Data
 public class JobField {
 
     private String value;
@@ -21,26 +24,6 @@ public class JobField {
 
     public boolean contains(String value) {
         return this.value.toLowerCase().contains(value.toLowerCase());
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String aValue) {
-        value = aValue;
-    }
-
-    public String toString() {
-        return value;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    private void setId(int id) {
-        this.id = id;
     }
 
     @Override

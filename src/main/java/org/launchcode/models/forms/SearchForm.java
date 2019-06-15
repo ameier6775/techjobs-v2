@@ -1,10 +1,12 @@
 package org.launchcode.models.forms;
 
+import lombok.Data;
 import org.launchcode.models.JobFieldType;
 
 /**
  * Created by LaunchCode
  */
+@Data
 public class SearchForm {
 
     // The search options
@@ -16,23 +18,4 @@ public class SearchForm {
     // The search string
     private String keyword;
 
-    public JobFieldType getSearchField() {
-        return searchField;
-    }
-
-    public void setSearchField(JobFieldType searchField) {
-        this.searchField = searchField;
-    }
-
-    public JobFieldType[] getFields() {
-        return fields;
-    }
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
 }

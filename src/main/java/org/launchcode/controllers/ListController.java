@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by LaunchCode
@@ -36,7 +37,7 @@ public class ListController {
         }
 
 
-        ArrayList<? extends JobField> items;
+        List<? extends JobField> items;
 
         switch(column) {
             case EMPLOYER:
@@ -64,9 +65,12 @@ public class ListController {
     public String listJobsByColumnAndValue(Model model,
             @RequestParam JobFieldType column, @RequestParam String name) {
 
-        ArrayList<Job> jobs = jobData.findByColumnAndValue(column, name);
+        List<Job> jobs = jobData.findByColumnAndValue(column, name);
 
-        model.addAttribute("title", "Jobs with " + column.getName() + ": " + name);
+        String value = name.split("value=")[1];
+        String value2 = value.split(",")[0];
+
+        model.addAttribute("title", "Jobs with " + column.getName() + ": " + value2);
         model.addAttribute("jobs", jobs);
 
         return "list-jobs";
@@ -75,7 +79,7 @@ public class ListController {
     @RequestMapping(value = "all")
     public String listAllJobs(Model model) {
 
-        ArrayList<Job> jobs = jobData.findAll();
+        List<Job> jobs = jobData.findAll();
 
         model.addAttribute("title", "All Jobs");
         model.addAttribute("jobs", jobs);

@@ -1,6 +1,5 @@
 package org.launchcode.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 /**
  * Created by LaunchCode
